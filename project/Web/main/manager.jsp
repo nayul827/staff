@@ -13,9 +13,6 @@
 	<link rel="shortcut icon" href="/HRIS_Web/favicon.ico"/>
 	<link rel="stylesheet" href="../css/jqueryui/base/jquery.ui.all.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/styles.css" />
-	<link rel="stylesheet" type="text/css" href="../css/home_dialog.css" />
-	<link rel="stylesheet" type="text/css" href="/Themes/Home/Summer.css" />
-
 </head>
 <body>
 <div id="centerColumn">
@@ -25,7 +22,7 @@
 		<table>
 			<tr>
 				<td>
-					 안녕하세요${username }(관리자)님
+					 안녕하세요 ${username }(관리자)님
 				</td>
 			</tr>
 			<tr>

@@ -4,10 +4,10 @@
 <c:if test="${empty loginUser }">
 	<jsp:forward page="login.do" ></jsp:forward>
 </c:if>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<title>Fluid box layout</title>
+<title>Main</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
 	<link rel="shortcut icon" href="/HRIS_Web/favicon.ico"/>
@@ -25,7 +25,7 @@
 		<table>
 			<tr>
 				<td>
-					 안녕하세요${username }(사원)님
+					 안녕하세요 ${username }(사원)님
 				</td>
 			</tr>
 			<tr>
