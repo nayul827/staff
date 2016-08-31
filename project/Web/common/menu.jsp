@@ -13,7 +13,7 @@
 			<ul>
 				<li><a class="center_hassub" >개인 프로젝트 이력관리</a>
 					<ul>
-					<li><a href="project/projectList.jsp">프로젝트 이력 목록</a></li>
+					<li><a href="ProjectServlet?command=ProjectList">프로젝트 이력 목록</a></li>
 					<li><a href="project/projectInsert.jsp">프로젝트 이력 등록</a></li>
 					</ul>
 				</li>

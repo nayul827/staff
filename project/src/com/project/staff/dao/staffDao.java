@@ -11,8 +11,6 @@ import com.project.common.DBManager;
 import com.project.staff.dto.addrnoDto;
 import com.project.staff.dto.staffDto;
 
-import oracle.net.aso.s;
-
 public class staffDao {
 	private staffDao(){
 		
@@ -192,6 +190,8 @@ public class staffDao {
 			pstmt.setInt(10, sDto.getDeptno());
 			pstmt.setInt(11, sDto.getRanknum());
 			pstmt.setString(12, sDto.getEmpno());
+			
+			pstmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
