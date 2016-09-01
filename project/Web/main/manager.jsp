@@ -28,7 +28,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" value="로그아웃"/>&nbsp;
-					<input type="button" value="사원 생성" onclick="location.href=StaffServlet"/>
+					<a href="StaffServlet?command=staffInsertForm"><input type="button" value="사원 생성"/></a>
 				</td>
 			</tr>
 		</table>

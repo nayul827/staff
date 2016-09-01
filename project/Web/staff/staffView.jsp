@@ -18,8 +18,8 @@
 </head>
 <body>
 <div id="centerColumn">
-	<jsp:include page="common/header.jsp" ></jsp:include>
-	<jsp:include page="common/menu.jsp" ></jsp:include>
+	<jsp:include page="/common/header.jsp" ></jsp:include>
+	<jsp:include page="/common/menu.jsp" ></jsp:include>
 	
 	<div id="wrap" align="center">
 		<h1>사원 정보 상세</h1>
@@ -74,7 +74,7 @@
 		<input type="button" value="수정" onclick="location.href='StaffServlet?command=staffUpdateForm'">
 		<input type="button" value="삭제" onclick="open_win('StaffServlet?command=staffView')">
 	</div>
- <jsp:include page="common/footer.jsp" ></jsp:include>
+ <jsp:include page="/common/footer.jsp" ></jsp:include>
   <!--//end #footer//-->
 </div>
 <!--//end #centerColumn//-->

@@ -6,26 +6,25 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.project.common.Action;
-import com.project.common.Dto;
-import com.project.login.dao.LoginDao;
+import com.project.project.dao.ProjectDao;
+import com.project.project.dto.ProjectDto;
 
-public class ProjectInsertFormAction implements Action {
+public class ProjectViewAction implements Action {
 	@Override
 	public void exectute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "project/projectInsert.jsp";
+		String url = "project/projectView.jsp";
 		
-		HttpSession session = request.getSession();
+		int ppronum = Integer.parseInt(request.getParameter("ppronum"));
 		
-		String empno = (String) session.getAttribute("loginUser");
-		LoginDao pDao = LoginDao.getInstance();
-		Dto pDto = pDao.getEmp(empno);
+		ProjectDao pDao = ProjectDao.getInstance();
+		ProjectDto pDto = pDao.selectOneProjectByPpronum(ppronum);
+		
+		request.setAttribute("ppronum", pDto);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
-		
 	}
 }

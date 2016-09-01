@@ -83,6 +83,7 @@ public class ProjectDao {
 	public ProjectDto selectOneProjectByPpronum(int ppronum){
 		String sql = "select * from pproject where ppronum=?";
 		
+		
 		ProjectDto pDto = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;

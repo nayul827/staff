@@ -10,10 +10,11 @@ import com.project.common.Action;
 import com.project.project.dao.ProjectDao;
 import com.project.project.dto.ProjectDto;
 
-public class ProjectInsertAction implements Action {
+public class ProjectUpdateAction implements Action {
 	@Override
 	public void exectute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		ProjectDto pDto = new ProjectDto();
 		
 		pDto.setPpronum(Integer.parseInt(request.getParameter("ppronum")));
@@ -27,7 +28,8 @@ public class ProjectInsertAction implements Action {
 		pDto.setCareernum(Integer.parseInt(request.getParameter("careernum")));
 		
 		ProjectDao pDao = ProjectDao.getInstance();
-		pDao.insertProject(pDto);
-		response.sendRedirect("ProjectServlet?command=projectView");
+		pDao.updatePproject(pDto);
+		
+		new ProjectListAction().exectute(request, response);
 	}
 }

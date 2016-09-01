@@ -11,8 +11,8 @@
 </head>
 <body>
 <div id="centerColumn">
-	<jsp:include page="common/header.jsp" ></jsp:include>
-	<jsp:include page="common/menu.jsp" ></jsp:include>
+	<jsp:include page="/common/header.jsp" ></jsp:include>
+	<jsp:include page="/common/menu.jsp" ></jsp:include>
 <div id="wrap" align="center">
 	<h1>게시글 수정</h1>
 	<form action="NoticeServlet" method="post" name="frm">
@@ -43,7 +43,7 @@
 		<input type="button" value="목록" onclick="location.href='NoticeServlet?command=notice_list'">
 	</form>
 </div>	  
- <jsp:include page="common/footer.jsp" ></jsp:include>
+ <jsp:include page="/common/footer.jsp" ></jsp:include>
   <!--//end #footer//-->
 </div>
 </body>
