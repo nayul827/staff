@@ -1,4 +1,4 @@
-package com.project.staff.action;
+package com.project.project.action;
 
 import java.io.IOException;
 
@@ -12,22 +12,19 @@ import com.project.common.Action;
 import com.project.common.Dto;
 import com.project.login.dao.LoginDao;
 
-public class staffInsertFormAction implements Action{
+public class CrojectInsertFormAction implements Action {
 	@Override
 	public void exectute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url="staff/staffInsert.jsp";
+		String url = "project/crojectInsert.jsp";
 		
 		HttpSession session = request.getSession();
 		
-		String nm = (String) session.getAttribute("loginUser");
-		LoginDao sDao = LoginDao.getInstance();
-		Dto sDto = sDao.getEmp(nm);
+		String empno = (String) session.getAttribute("loginUser");
+		LoginDao cDao = LoginDao.getInstance();
+		Dto pDto = cDao.getEmp(empno);
 		
-		
-		request.setAttribute("type", sDto.getManyn());
-		
-		RequestDispatcher dispatcher= request.getRequestDispatcher(url);
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
 }

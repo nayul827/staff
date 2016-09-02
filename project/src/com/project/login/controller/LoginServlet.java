@@ -22,13 +22,13 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("main/login2.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("main/login.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "main/login2.jsp";
+		String url = "main/login.jsp";
 
 		String empno = request.getParameter("empno");
 		String pwd = request.getParameter("pwd");

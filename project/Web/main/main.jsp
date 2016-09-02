@@ -9,10 +9,9 @@
 <head>
 <title>Main</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="./css/main.css" media="screen" />
 	<link rel="shortcut icon" href="/HRIS_Web/favicon.ico"/>
 	<link rel="stylesheet" href="../css/jqueryui/base/jquery.ui.all.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/styles.css" />
 	<link rel="stylesheet" type="text/css" href="../css/home_dialog.css" />
 	<link rel="stylesheet" type="text/css" href="/Themes/Home/Summer.css" />
 

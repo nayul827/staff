@@ -7,7 +7,7 @@
 <head>
 <title>Fluid box layout</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" media="screen" />
 
 </head>
 <body>

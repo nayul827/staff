@@ -1,10 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%-- <c:if test="${empty loginUser }">
+	<jsp:forward page="login.do" ></jsp:forward>
+</c:if> --%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>Fluid box layout</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/staff.css"/>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/staff.js"></script>
 </head>
 <body>
 <div id="centerColumn">
@@ -13,99 +23,122 @@
 	
 	<div id="tabs">
 		<ul>
-			<li><a href="#tabs-1">ÇÐ·Â</a></li>
-			<li><a href="#tabs-2">°æ·Â</a></li>
-			<li><a href="#tabs-3">ÀÚ°ÝÁõ</a></li>
-			<li><a href="#tabs-4">º¸À¯ ±â¼ú</a></li>
+			<li><a href="#tabs-1">ì‚¬ì›</a></li>
+			<li><a href="#tabs-2">í•™ë ¥</a></li>
+			<li><a href="#tabs-3">ê²½ë ¥</a></li>
+			<li><a href="#tabs-4">ìžê²©ì¦</a></li>
+			
 		</ul>
-		<div id="tabs-1"></div>
-		<div id="tabs-2"></div>
-		<div id="tabs-3"></div>
-		<div id="tabs-4"></div>		
-	</div>
-	<div id="wrap" align="center">
+		<div id="tabs-1">
 		<form action="StaffServlet" method="post" name="frm">
-		<!-- <input type="hidden" name="command" />  -->
+		<input type="hidden" name="command" value="staffList"/>  
 		<table>
 			<tr>
-				<th>»ç¹ø</th>
-				<td><input type="text" /></td>
+				<th>ì‚¬ë²ˆ</th>
+				<td><input type="text" readonly="readonly"/></td>
 			</tr>
 			<tr>
-				<th>»ç¿ø¸í</th>
-				<td><input type="text" name="empnm"/></td>
+				<th>ì‚¬ì›ëª…</th>
+				<td><input type="text" name="empnm" placeholder="aaaaaa" /></td>
 			</tr>
 			<tr>
-				<th>ÁÖ¹Î¹øÈ£</th>
+				<th>ì£¼ë¯¼ë²ˆí˜¸</th>
 				<td><input type="text" name="juminno"/></td>
 			</tr>
 			<tr>
-				<th>ÀÔ»çÀÏ</th>
-				<td><input type="text" name="indt"/></td>
+				<th>ì´ë©”ì¼</th>
+				<td><input type="text" name="email"></td>
 			</tr>
 			<tr>
-				<th>Åð»çÀÏ</th>
-				<td><input type="text" name="outdt"/></td>
+				<th>Tel</th>
+				<td><input type="text" name="phone"></td>
 			</tr>
 			<tr>
-				<th>¿ìÆí ¹øÈ£</th>
+				<th>ì‚¬ì§„</th>
+				<td></td>
+			</tr>
+			<tr>
+				<th>ìž…ì‚¬ì¼</th>
+				<td>
+					<input type="text" id="indt"/>
+				</td>
+			</tr>
+			<tr>
+				<th>í‡´ì‚¬ì¼</th>
+				<td><input type="text" id="outdt"/></td>
+			</tr>
+			<tr>
+				<th>ìš°íŽ¸ ë²ˆí˜¸</th>
 				<td><input type="text" name="addrno"/></td>
 			</tr>
 			<tr>
-				<th>ÁÖ¼Ò</th>
+				<th>ì£¼ì†Œ</th>
 				<td><input type="text" name="addrno"/></td>
 			</tr>
 			<tr>
-				<th>»ó¼¼ ÁÖ¼Ò</th>
+				<th>ìƒì„¸ ì£¼ì†Œ</th>
 				<td><input type="text" name="addrno"/></td>
 			</tr>
 			<tr>
-				<th>±Þ¿©</th>
+				<th>ê¸‰ì—¬</th>
 				<td><input type="text" name="salary"/></td>
 			</tr>
 			<tr>
-				<th>µî·ÏÀÏ</th>
-				<td><input type="text" name="wdt"/></td>
+				<th>ë“±ë¡ì¼</th>
+				<td><input type="text" id="datepicker"></td>
 			</tr>
 			<tr>
-				<th>ºÎ¼­¸í</th>
+				<th>ë¶€ì„œëª…</th>
 				<td>
 					<select id ="deptno" name="deptno ">
-						<option value="">¼±ÅÃÇÏ¼¼¿ä</option>
-						<option value="10">ÃÑ¹«ºÎ</option>
-						<option value="20">¿µ¾÷ºÎ</option>
-						<option value="30">ÀÎ»çºÎ</option>
-						<option value="40">°³¹ßºÎ</option>
-						<option value="50">ÀçÁ¤ºÎ</option>
-						<option value="60">µðÀÚÀÎºÎ</option>
-						<option value="70">È«º¸ºÎ</option>
-						<option value="80">°ü¸®ºÎ</option>
-						<option value="90">¸»¸®ºÎ</option>
+						<option value="">ì„ íƒí•˜ì„¸ìš”</option>
+						<option value="10">ì´ë¬´ë¶€</option>
+						<option value="20">ì˜ì—…ë¶€</option>
+						<option value="30">ì¸ì‚¬ë¶€</option>
+						<option value="40">ê°œë°œë¶€</option>
+						<option value="50">ìž¬ì •ë¶€</option>
+						<option value="60">ë””ìžì¸ë¶€</option>
+						<option value="70">í™ë³´ë¶€</option>
+						<option value="80">ê´€ë¦¬ë¶€</option>
+						<option value="90">ë§ë¦¬ë¶€</option>
 					</select>
 				</td>
 			</tr>
+			
+			<c:if test="${type eq 0}">
 			<tr>
-				<th>Á÷±Þ¸í</th>
+				<th>ì§ê¸‰ëª…</th>
 				<td>
 					<select id="ranknum" name="ranknum">
-						<option value="10">´ëÇ¥ÀÌ»ç</option>
-						<option value="20">ÀÌ»ç</option>
-						<option value="30">»ó¹«</option>
-						<option value="40">ºÎÀå</option>
-						<option value="50">Â÷Àå</option>
-						<option value="60">°úÀå</option>
-						<option value="70">ÆÀÀå</option>
-						<option value="80">´ë¸®</option>
-						<option value="90">»ç¿ø</option>			
+						<option value="10">ëŒ€í‘œì´ì‚¬</option>
+						<option value="20">ì´ì‚¬</option>
+						<option value="30">ìƒë¬´</option>
+						<option value="40">ë¶€ìž¥</option>
+						<option value="50">ì°¨ìž¥</option>
+						<option value="60">ê³¼ìž¥</option>
+						<option value="70">íŒ€ìž¥</option>
+						<option value="80">ëŒ€ë¦¬</option>
+						<option value="90">ì‚¬ì›</option>			
 					</select>
 				</td>
 			</tr>
+			</c:if>
 		</table>
-		<input type="submit" name="µî·Ï" onclick="location.href='StaffServlet?command=staffView'"/>
-		<input type="reset" name="Ãë¼Ò"/>	
+		<input type="submit" name="ë“±ë¡" onclick="location.href='StaffServlet?command=staffView'"/>
+		<input type="reset" name="ì·¨ì†Œ"/>	
 		</form>	
+		</div>
+		<div id="tabs-2"></div>
+		<div id="tabs-3"></div>
+		<div id="tabs-4"></div>
+	
 	</div>
-<jsp:include page="../common/footer.jsp" ></jsp:include>	
+	
+	<div id="wrap" align="center">
+	</div>
+ <jsp:include page="../common/footer.jsp" ></jsp:include>
+  <!--//end #footer//-->
 </div>
+<!--//end #centerColumn//-->
 </body>
 </html>

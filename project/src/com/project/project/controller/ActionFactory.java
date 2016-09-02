@@ -1,6 +1,13 @@
 package com.project.project.controller;
 
 import com.project.common.Action;
+import com.project.project.action.CrojectDeleteAction;
+import com.project.project.action.CrojectInsertAction;
+import com.project.project.action.CrojectInsertFormAction;
+import com.project.project.action.CrojectListAction;
+import com.project.project.action.CrojectUpdateAction;
+import com.project.project.action.CrojectUpdateFormAction;
+import com.project.project.action.CrojectViewAction;
 import com.project.project.action.ProjectDeleteAction;
 import com.project.project.action.ProjectInsertAction;
 import com.project.project.action.ProjectInsertFormAction;
@@ -22,20 +29,36 @@ public class ActionFactory {
 		Action action = null;
 		System.out.println("ActionFactory :" + command);
 		
-		if(command.equals("Project_List")) {
+		if (command.equals("project_list")) {
 			action = new ProjectListAction();
-		} else if(command.equals("Project_Insert")) {
+		} else if (command.equals("project_insert")) {
 			action = new ProjectInsertAction();
-		} else if(command.equals("Project_Insert_Form")) {
+		} else if (command.equals("project_insert_form")) {
 			action = new ProjectInsertFormAction(); 
-		} else if(command.equals("Project_Update")) {
+		} else if (command.equals("project_update")) {
 			action = new ProjectUpdateAction();
-		} else if(command.equals("Project_Update_Form")) {
+		} else if (command.equals("project_update_form")) {
 			action = new ProjectUpdateFormAction();
-		} else if(command.equals("Project_View_Action")) {
+		} else if (command.equals("project_view_action")) {
 			action = new ProjectViewAction();
-		} else if(command.equals("Project_Delete_Action")) {
+		} else if (command.equals("project_delete_action")) {
 			action = new ProjectDeleteAction();
+		}
+		
+		if (command.equals("croject_list")) {
+			action = new CrojectListAction();
+		} else if (command.equals("croject_insert")) {
+			action = new CrojectInsertAction();
+		} else if (command.equals("croject_insert_form")) {
+			action = new CrojectInsertFormAction();
+		} else if (command.equals("croject_update")) {
+			action = new CrojectUpdateAction();
+		} else if (command.equals("croject_update_form")) {
+			action = new CrojectUpdateFormAction();
+		} else if (command.equals("croject_view_action")) {
+			action = new CrojectViewAction();
+		} else if (command.equals("croject_delete_action")) {
+			action = new CrojectDeleteAction();
 		}
 		return action;
 	}

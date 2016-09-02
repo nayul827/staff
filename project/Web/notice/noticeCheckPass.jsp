@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./css/shopping.css">
 <script type="text/javascript" src="js/notice.js"></script>
@@ -13,20 +13,20 @@
 	<jsp:include page="../common/menu.jsp" ></jsp:include>
 	
 <div align="center">
-<h1>ºñ¹Ğ¹øÈ£ È®ÀÎ</h1>
+<h1>ë¹„ë°€ë²ˆí˜¸ í™•ì¸</h1>
 <form action="NoticeServlet" name="frm" method="get">
 	<input type="hidden" name="command" value="notice_check_pass">
 	<input type="hidden" name="noticenum" value="${param.noticenum }">
 	<table style="width:80%">
 		<tr>
-			<th>ºñ¹Ğ¹øÈ£</th>
+			<th>ë¹„ë°€ë²ˆí˜¸</th>
 			<td>
 				<input type="password" name="pass" size="20">
 			</td>
 		</tr>
 	</table>
 	<br>
-	<input type="text" value="È®ÀÎ" onclick="return passCheck()">
+	<input type="text" value="í™•ì¸" onclick="return passCheck()">
 	<br><br>${message }
 </form>
 </div>

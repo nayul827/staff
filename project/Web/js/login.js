@@ -15,4 +15,5 @@ function loginCheck(){
 	}
 	
 	return true;
+	
 }

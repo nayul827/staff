@@ -22,9 +22,9 @@ public class CrojectDao {
 		}
 		return instance;
 	}
-	public List<CrojectDao> selectAllMember() {
+	public List<ProjectDto> selectAllMember() {
 		String sql = "select * from emp";
-		List<CrojectDao> list = new ArrayList<>();
+		List<ProjectDto> list = new ArrayList<>();
 		
 		Connection conn = null;
 		Statement stmt = null;
@@ -78,7 +78,7 @@ public class CrojectDao {
 			DBManager.close(conn, pstmt);
 		}
 	}
-	public ProjectDto selectOneProjectByCpronum(int ccronum){
+	public ProjectDto selectOneProjectByCpronum(int cpronum){
 		String sql = "select * from cproject where cpronum=?";
 		
 		ProjectDto pDto = null;

@@ -7,7 +7,7 @@
 <head>
 <title>Fluid box layout</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" media="screen" />
 </head>
 <body>
 <div id="centerColumn">
@@ -15,23 +15,25 @@
 	<jsp:include page="../common/menu.jsp" ></jsp:include>
 	
   <!--//end #nav//-->
-  <h2>프로젝트 이력 목록</h2>
-<br />
+  <h2>개인 프로젝트 이력 목록</h2>
+<br/>
 <table id="natable" cellspacing='0'>
 	<tr>
+		<th>순번</th>
 		<th>사원번호</th>
 		<th>프로젝트명</th>
 		<th>등록일</th>
 	</tr>
 	<c:forEach var="project" items="${projectList }">
 		<tr>
+			<td>${project.ppronum }</td>
 			<td>${project.empno }</td>
 			<td><a href="ProjectServlet?command=projectView&ppronm=${project.ppronm }">${project.ppronm }</a></td>
 			<td>${project.pregidt }</td>
-			</br>
-			</br>
-			</br>
-			<td><input type="submit" value="등록" onclick="ProjectServlet?command=projectInsertFormAction"></td>
+			<br/>
+			<br/>
+			<br/>
+			<td><input type="submit" value="등록" onclick="ProjectServlet?command=project_insert_form_action"></td>
 		</tr>
 	</c:forEach>    
 </table>  
