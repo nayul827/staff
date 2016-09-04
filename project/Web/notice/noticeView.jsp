@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,8 +13,6 @@
 <body>
 <div id="centerColumn">
 	<jsp:include page="/common/header.jsp" ></jsp:include>
-	<jsp:include page="/common/menu.jsp" ></jsp:include>
-
 	<div id="wrap" align="center">
 		<h1>게시글 상세보기</h1>
 		<table>
@@ -37,7 +35,7 @@
 		<br><br>
 		<input type="button" value="게시글 수정" onclick="open_win('NoticeServlet?command=notice_check_pass_form&noticenum=${notice.noticenum}','update')">
 		<input type="button" value="게시글 삭제" onclick="open_win('NoticeServlet?command=notice_check_pass_form&noticenum=${notice.noticenum}','delete')">
-		<input type="button" value="게시글 리스트" onclick="location.href='NoticeServlet?command=notice_list'">
+		<input type="button" value="게시글 목록" onclick="location.href='NoticeServlet?command=notice_list'">
 		<input type="button" value="게시글 등록" onclick="location.href='NoticeServlet?command=notice_write_form'">
 	</div>
   

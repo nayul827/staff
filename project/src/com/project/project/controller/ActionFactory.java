@@ -8,6 +8,8 @@ import com.project.project.action.CrojectListAction;
 import com.project.project.action.CrojectUpdateAction;
 import com.project.project.action.CrojectUpdateFormAction;
 import com.project.project.action.CrojectViewAction;
+import com.project.project.action.ProjectCheckPassAction;
+import com.project.project.action.ProjectCheckPassFormAction;
 import com.project.project.action.ProjectDeleteAction;
 import com.project.project.action.ProjectInsertAction;
 import com.project.project.action.ProjectInsertFormAction;
@@ -43,6 +45,10 @@ public class ActionFactory {
 			action = new ProjectViewAction();
 		} else if (command.equals("project_delete_action")) {
 			action = new ProjectDeleteAction();
+		} else if (command.equals("project_check_pass")) {
+			action = new ProjectCheckPassAction();
+		} else if (command.equals("project_check_pass_form")) {
+			action = new ProjectCheckPassFormAction();
 		}
 		
 		if (command.equals("croject_list")) {
@@ -59,6 +65,10 @@ public class ActionFactory {
 			action = new CrojectViewAction();
 		} else if (command.equals("croject_delete_action")) {
 			action = new CrojectDeleteAction();
+		} else if (command.equals("project_check_pass")) {
+			action = new ProjectCheckPassAction();
+		} else if (command.equals("project_check_pass_form")) {
+			action = new ProjectCheckPassFormAction();
 		}
 		return action;
 	}

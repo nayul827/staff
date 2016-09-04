@@ -15,5 +15,4 @@ function loginCheck(){
 	}
 	
 	return true;
-	
 }

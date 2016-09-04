@@ -1,4 +1,4 @@
-package com.project.controller.action;
+package com.project.notice.action;
 
 import java.io.IOException;
 
@@ -10,22 +10,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.project.notice.dao.NoticeDao;
 import com.project.notice.dto.NoticeDto;
 
-public class NoticeUpdateFormAction implements Action{
+public class NoticeCheckPassAction implements Action{
 	@Override
 	public void exectute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
-		String url="/notice/noticeUpdate.jsp";
+		String url=null;
 		
-		int noticenum= Integer.parseInt(request.getParameter("noticenum"));
+		int noticenum=Integer.parseInt(request.getParameter("noticenum"));
+		String pass =  request.getParameter("pass");
 		
 		NoticeDao nDao = NoticeDao.getInstance();
-		nDao.updateReadCount(noticenum);
+		NoticeDto nDto = nDao.selectOneNoticeByNoticeNum(noticenum);
 		
-		NoticeDto nDto= nDao.selectOneNoticeByNoticeNum(noticenum);
-		
-		request.setAttribute("notice",nDto);
-		
+		if(nDto.getPass().equals(pass)){
+			url="/notice/checkSuccess.jsp";
+		}else{
+			url="/notice/noticeCheckPass.jsp";
+			request.setAttribute("message", "비밀번호가 틀렸습니다.");
+		}
 		RequestDispatcher dispatcher= request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

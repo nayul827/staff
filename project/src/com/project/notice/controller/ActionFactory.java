@@ -1,15 +1,15 @@
 package com.project.notice.controller;
 
-import com.project.controller.action.Action;
-import com.project.controller.action.NoticeCheckPassAction;
-import com.project.controller.action.NoticeCheckPassFormAction;
-import com.project.controller.action.NoticeDeleteAction;
-import com.project.controller.action.NoticeListAction;
-import com.project.controller.action.NoticeUpdateAction;
-import com.project.controller.action.NoticeUpdateFormAction;
-import com.project.controller.action.NoticeViewAction;
-import com.project.controller.action.NoticeWriteAction;
-import com.project.controller.action.NoticeWriteFormAction;
+import com.project.notice.action.Action;
+import com.project.notice.action.NoticeCheckPassAction;
+import com.project.notice.action.NoticeCheckPassFormAction;
+import com.project.notice.action.NoticeDeleteAction;
+import com.project.notice.action.NoticeListAction;
+import com.project.notice.action.NoticeUpdateAction;
+import com.project.notice.action.NoticeUpdateFormAction;
+import com.project.notice.action.NoticeViewAction;
+import com.project.notice.action.NoticeWriteAction;
+import com.project.notice.action.NoticeWriteFormAction;
 
 public class ActionFactory {
 	private static ActionFactory instance= new ActionFactory();

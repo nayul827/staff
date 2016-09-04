@@ -1,4 +1,3 @@
-@CHARSET "UTF-8";
 $('.tabs .tab').click(function(){
     if ($(this).hasClass('signin')) {
         $('.tabs .tab').removeClass('active');

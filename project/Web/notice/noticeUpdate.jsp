@@ -12,8 +12,7 @@
 <body>
 <div id="centerColumn">
 	<jsp:include page="/common/header.jsp" ></jsp:include>
-	<jsp:include page="/common/menu.jsp" ></jsp:include>
-<div id="wrap" align="center">
+	<div id="wrap" align="center">
 	<h1>게시글 수정</h1>
 	<form action="NoticeServlet" method="post" name="frm">
 		<input type="hidden" name="command" value="notice_update">
@@ -22,7 +21,7 @@
 		<table>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" size="12" name="writer" value="${notice.noticenum }">*필수</td>
+				<td><input type="text" size="12" name="writer" value="${notice.writer }">*필수</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>

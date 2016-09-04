@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.project.controller.action.Action;
+import com.project.notice.action.Action;
 
 /**
  * Servlet implementation class NoticeServlet

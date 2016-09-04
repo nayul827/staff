@@ -1,4 +1,4 @@
-package com.project.controller.action;
+package com.project.notice.action;
 
 import java.io.IOException;
 
@@ -20,7 +20,6 @@ public class NoticeViewAction implements Action{
 		int noticenum=Integer.parseInt(request.getParameter("noticenum"));
 		
 		NoticeDao nDao = NoticeDao.getInstance();
-		
 		nDao.updateReadCount(noticenum);
 		
 		NoticeDto nDto=nDao.selectOneNoticeByNoticeNum(noticenum);

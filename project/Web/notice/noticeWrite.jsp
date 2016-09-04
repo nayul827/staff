@@ -12,8 +12,7 @@
 <body>
 <div id="centerColumn">
 	<jsp:include page="../common/header.jsp" ></jsp:include>
-	<jsp:include page="../common/menu.jsp" ></jsp:include>
-<div id="wrap" align="center">
+	<div id="wrap" align="center">
 	<h1>게시글 등록</h1>
 	<form action="NoticeServlet" method="post" name="frm">
 		<input type="hidden" name="command" value="notice_write">
