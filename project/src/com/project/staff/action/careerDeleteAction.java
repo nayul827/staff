@@ -13,7 +13,7 @@ import com.project.staff.dao.staffDao;
 
 public class careerDeleteAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int careernum= Integer.parseInt(request.getParameter("careernum"));
 		

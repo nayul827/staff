@@ -38,7 +38,7 @@ public class StaffUploadServlet extends HttpServlet {
 		ActionFactory af= ActionFactory.getInstance();
 		ActionUpload actionUpload = af.getActionUpload(command);
 		if(actionUpload!=null){
-			actionUpload.exectute(multi, response);
+			actionUpload.execute(multi, response);
 		}
 	}
 

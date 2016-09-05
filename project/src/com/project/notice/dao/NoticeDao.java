@@ -149,6 +149,8 @@ public class NoticeDao {
 			pstmt.setString(3, nDto.getTitle());
 			pstmt.setString(4, nDto.getContent());
 			pstmt.setInt(5, nDto.getNoticenum());
+			
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -186,8 +188,6 @@ public class NoticeDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
-			DBManager.close(conn, pstmt);
 		}
 		return nDto;
 	}
@@ -205,8 +205,6 @@ public class NoticeDao {
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
-			DBManager.close(conn, pstmt);
 		}
 	}	
 }

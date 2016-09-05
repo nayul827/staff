@@ -14,26 +14,33 @@
 <body>
 <div id="centerColumn">
 	<jsp:include page="../common/header.jsp"></jsp:include>
-		<div>	
+		<div id="wrap" align="center">	
 		<h1>프로젝트 상세보기</h1>
 			<table>
 				<tr>
-					<th>순번</th><td>${pproject.cpronum }</td>
+					<th>번호</th><td>${project.ppronum }</td>
 				</tr>
 				<tr>
-					<th>사원번호</th><td>${pproject.empno }</td>
+					<th>사원번호</th><td>${project.empno }</td>
 				</tr>
 				<tr>
-					<th>프로젝트 제목</th><td>${pproject.ppronm }</td>
+					<th>프로젝트 제목</th><td>${project.ppronm }</td>
 				</tr>
 				<tr>
-					<th>기간</th><td>${pproject.pinitdt }</td><th>~</th><td>${pproject.poutdt }</td>
+					<th>기간</th><td>${project.pinitdt }</td><th>~</th><td>${project.poutdt }</td>
 				</tr>
 				<tr>
-					<th>등록일</th><td>${pproject.pregidt }</td>
+					<th>사용 기술</th>
+					<td>${project.careernum }</td>
+				<tr>
+					<th>등록일</th><td>${project.pregidt }</td>
 				</tr>
 				<tr>
-					<th>프로젝트 내용</th><td>${pproject.pcontent }</td>
+					<th>상세내용</th><td>${project.pcontent }</td>
+				</tr>
+				<tr>
+					<th>수행역할</th>
+					<td>${project.worknum }</td>
 				</tr>
 			</table>
 			<br>

@@ -1,6 +1,7 @@
 package com.project.notice.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.project.notice.action.Action;
 
-/**
- * Servlet implementation class NoticeServlet
- */
 @WebServlet("/NoticeServlet")
 public class NoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,7 +22,7 @@ public class NoticeServlet extends HttpServlet {
 		Action action= af.getAction(command);
 		
 		if(action!=null){
-			action.exectute(request, response);
+			action.execute(request, response);
 		}
 	}
 

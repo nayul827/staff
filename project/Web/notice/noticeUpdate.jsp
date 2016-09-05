@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Inserts title here</title>
-<link rel="stylesheet" type="text/css" href="./css/shopping.css">
+<link rel="stylesheet" type="text/css" href="./css/main.css">
 <script type="text/javascript" src="js/notice.js"></script>
 </head>
 <body>
@@ -21,11 +21,11 @@
 		<table>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" size="12" name="writer" value="${notice.writer }">*필수</td>
+				<td><input type="text" size="12" name="writer" value="${notice.writer }">* 필수</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" size="12" name="pass">*필수</td>
+				<td><input type="password" size="12" name="pass">* 필수</td>
 			</tr>
 			<tr>
 				<th>제목</th>

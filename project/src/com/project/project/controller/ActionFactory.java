@@ -41,9 +41,9 @@ public class ActionFactory {
 			action = new ProjectUpdateAction();
 		} else if (command.equals("project_update_form")) {
 			action = new ProjectUpdateFormAction();
-		} else if (command.equals("project_view_action")) {
+		} else if (command.equals("project_view")) {
 			action = new ProjectViewAction();
-		} else if (command.equals("project_delete_action")) {
+		} else if (command.equals("project_delete")) {
 			action = new ProjectDeleteAction();
 		} else if (command.equals("project_check_pass")) {
 			action = new ProjectCheckPassAction();
@@ -61,9 +61,9 @@ public class ActionFactory {
 			action = new CrojectUpdateAction();
 		} else if (command.equals("croject_update_form")) {
 			action = new CrojectUpdateFormAction();
-		} else if (command.equals("croject_view_action")) {
+		} else if (command.equals("croject_view")) {
 			action = new CrojectViewAction();
-		} else if (command.equals("croject_delete_action")) {
+		} else if (command.equals("croject_delete")) {
 			action = new CrojectDeleteAction();
 		} else if (command.equals("project_check_pass")) {
 			action = new ProjectCheckPassAction();

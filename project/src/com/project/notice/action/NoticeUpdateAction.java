@@ -11,7 +11,7 @@ import com.project.notice.dto.NoticeDto;
 
 public class NoticeUpdateAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		NoticeDto nDto =  new NoticeDto();
 		
@@ -24,6 +24,6 @@ public class NoticeUpdateAction implements Action{
 		NoticeDao nDao = NoticeDao.getInstance();
 		nDao.updateNotice(nDto);
 		
-		new NoticeListAction().exectute(request, response);
+		new NoticeListAction().execute(request, response);
 	}
 }

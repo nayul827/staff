@@ -13,7 +13,7 @@ import com.project.staff.dto.licenseDto;
 
 public class licenseInsertAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		licenseDto lDto =  new licenseDto();

@@ -13,14 +13,14 @@ import com.project.staff.dto.staffDto;
 
 public class staffInsertAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		staffDto sDto = new staffDto();
 		
 		HttpSession session= request.getSession();
-		String sesstionEmpno = (String)session.getAttribute("manager");
+		String sessionEmpno = (String)session.getAttribute("empno");
 		
-		sDto.setEmpno(sesstionEmpno);
+		sDto.setEmpno(sessionEmpno);
 		sDto.setEmpnm(request.getParameter("empnm"));
 		sDto.setJuminno(request.getParameter("juminno"));
 		sDto.setEmail(request.getParameter("email"));
@@ -35,7 +35,7 @@ public class staffInsertAction implements Action{
 		sDto.setRanknum(Integer.parseInt(request.getParameter("ranknum")));
 		
 		staffDao sDao = staffDao.getIntance();
-		sDao.insertStaff(sDto);
+		sDao.insertStaff(sDto, sessionEmpno);
 		response.sendRedirect("StaffServlet?command=staffView");
 		
 	}

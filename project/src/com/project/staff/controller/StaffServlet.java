@@ -26,7 +26,7 @@ public class StaffServlet extends HttpServlet {
 		Action action = af.getAction(command);
 		
 		if(action!=null){
-			action.exectute(request, response);
+			action.execute(request, response);
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

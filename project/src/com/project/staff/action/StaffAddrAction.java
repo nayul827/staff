@@ -16,7 +16,7 @@ import com.project.staff.dto.staffDto;
 
 public class StaffAddrAction implements Action {
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String dong= request.getParameter("dong");
 		List<addrnoDto> list= new ArrayList<>();

@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 function noticeCheck(){
 	if(document.frm.writer.value.length==0){
 		alert("작성자를 입력하세요");

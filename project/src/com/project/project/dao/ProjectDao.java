@@ -24,8 +24,8 @@ public class ProjectDao {
 	}
 	public List<ProjectDto> selectAllMember(){
 		String sql = "select * from emp";
-		List<ProjectDto> list = new ArrayList<>();
 		
+		List<ProjectDto> list = new ArrayList<>();
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -41,7 +41,9 @@ public class ProjectDao {
 				pDto.setPpronum(rs.getInt("ppronum"));
 				pDto.setEmpno(rs.getString("empno"));
 				pDto.setPpronm(rs.getString("ppronm"));
-				pDto.setWdt(rs.getString("wdt"));
+				pDto.setPregidt(rs.getTimestamp("pregidt"));
+				pDto.setPwd(rs.getString("pwd"));
+				pDto.setPcontent(rs.getString("pcontent"));
 				
 				list.add(pDto);
 			}
@@ -54,8 +56,8 @@ public class ProjectDao {
 	}
 	public void insertProject(ProjectDto pDto) {
 		String sql = "insert into pproject("
-				+ "PPRONUM,PREGIDT,PINITDT,POUTDT,PPRONM,PCONTENT,EMPNO,WORKNUM,CAREERNUM)"
-				+ "values(ppronum,?,?,?,?,?,?,?,?)";
+				+ "PPRONUM,PINITDT,POUTDT,PPRONM,PCONTENT,EMPNO,WORKNUM,CAREERNUM,pwd)"
+				+ "values(pproject_seq.nextval,?,?,?,?,?,?,?,?)";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -71,6 +73,8 @@ public class ProjectDao {
 			pstmt.setString(5, pDto.getPcontent());
 			pstmt.setString(6, pDto.getEmpno());
 			pstmt.setInt(7, pDto.getCareernum());
+			pstmt.setInt(8, pDto.getWorknum());
+			pstmt.setString(9, pDto.getPwd());
 			
 			pstmt.executeUpdate();
 			
@@ -104,6 +108,9 @@ public class ProjectDao {
 				pDto.setPpronm(rs.getString("ppronm"));
 				pDto.setEmpno(rs.getString("empno"));
 				pDto.setCareernum(rs.getInt("careernum"));
+				pDto.setPwd(rs.getString("pwd"));
+				pDto.setWorknum(rs.getInt("worknum"));
+				pDto.setPregidt(rs.getTimestamp("Pregidt"));
 				
 			}
 		} catch (Exception e) {
@@ -114,7 +121,7 @@ public class ProjectDao {
 		return pDto;
 	}
 	public void updatePproject(ProjectDto pDto) {
-		String sql = "update pproject set PPRONUM=?, PREGIDT=?, PINITDT=?, POUTDT=?, PPRONM=?, PCONTENT=?, EMPNO=?, WORKNUM=?, CAREERNUM=?";
+		String sql = "update pproject set PREGIDT=?, PINITDT=?, POUTDT=?, PPRONM=?, PCONTENT=?, EMPNO=?, WORKNUM=?, CAREERNUM=? where ppronum=?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -124,7 +131,7 @@ public class ProjectDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, pDto.getPpronum());
-			pstmt.setString(2, pDto.getPregidt());
+			pstmt.setTimestamp(2, pDto.getPregidt());
 			pstmt.setString(3, pDto.getPinitdt());
 			pstmt.setString(4, pDto.getPoutdt());
 			pstmt.setString(5, pDto.getPpronm());
@@ -139,6 +146,38 @@ public class ProjectDao {
 		} finally {
 			DBManager.close(conn, pstmt);
 		}
+	}
+	public ProjectDto checkPassWord(String pwd, int ppronum) {
+		String sql = "select *from pproject where pwd=? and ppronum=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ProjectDto pDto = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, pwd);
+			pstmt.setInt(2, ppronum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pDto = new ProjectDto();
+				
+				pDto.setPpronum(rs.getInt("ppronum"));
+				pDto.setPwd(rs.getString("pwd"));
+				pDto.setPpronm(rs.getString("ppronm"));
+				pDto.setEmpno(rs.getString("empno"));
+				pDto.setPcontent(rs.getString("pcontent"));
+				pDto.setPregidt(rs.getTimestamp("pregidt"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return pDto;
 	}
 	public void deletePproject(int Ppronum) {
 		String sql = "delete pproject where ppronum=?";

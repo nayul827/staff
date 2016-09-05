@@ -13,7 +13,7 @@ import com.project.staff.dto.staffDto;
 
 public class staffViewAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		String url="staff/staffView.jsp";
@@ -21,7 +21,7 @@ public class staffViewAction implements Action{
 		String empno= request.getParameter("empno");
 		
 		staffDao sDao= staffDao.getIntance();
-		staffDto sDto= sDao.selectOneStaffByEmpNO(empno);
+		staffDto sDto= sDao.selectOneEmpByEmpNO(empno);
 		request.setAttribute(empno, sDto);
 		
 		RequestDispatcher dispatcher= request.getRequestDispatcher(url);

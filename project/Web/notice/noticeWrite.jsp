@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="./css/shopping.css">
+<link rel="stylesheet" type="text/css" href="./css/main.css">
 <script type="text/javascript" src="js/notice.js"></script>
 </head>
 <body>
@@ -19,21 +19,21 @@
 		<table>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer">*필수</td>
+				<td><input type="text" name="writer">* 필수</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
 				<td><input type="password" name="pass">
-					*필수( 게시물 수정 삭제시 필요)
+					* 필수
 				</td>
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" size="70" name="title">*필수</td>
+				<td><input type="text" size="70" name="title">* 필수</td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea rows="15" cols="79" name="content"></textarea></td>
+				<td><textarea rows="15" cols="70" name="content"></textarea></td>
 			</tr>
 		</table>
 		<br><br>

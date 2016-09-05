@@ -12,7 +12,7 @@ import com.project.staff.dto.staffDto;
 
 public class staffUpdateAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		staffDto sDto = new staffDto();
@@ -33,6 +33,6 @@ public class staffUpdateAction implements Action{
 		staffDao sDao= staffDao.getIntance();
 		sDao.updateStaff(sDto);
 		
-		new staffListAction().exectute(request, response);
+		new staffListAction().execute(request, response);
 	}
 }

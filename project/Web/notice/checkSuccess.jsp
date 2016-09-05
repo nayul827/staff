@@ -9,12 +9,12 @@
 <body>
 <script type="text/javascript">
 	if(window.name=="update"){
-		alert("수정되었습니다.")
 		window.opener.parent.location.href="NoticeServlet?command=notice_update_form&noticenum=${param.noticenum}";
+		alert("수정되었습니다.")
 		
 	}else if(window.name=="delete"){
-		alert("삭제 되었습니다.");
 		window.opener.parent.location.href="NoticeServlet?command=notice_delete&noticenum=${param.noticenum}";
+		alert("삭제되었습니다.");
 	}
 	window.close();
 </script>

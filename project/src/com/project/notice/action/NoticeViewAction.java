@@ -12,7 +12,7 @@ import com.project.notice.dto.NoticeDto;
 
 public class NoticeViewAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		String url="/notice/noticeView.jsp";

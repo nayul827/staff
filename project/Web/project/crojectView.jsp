@@ -9,12 +9,12 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" type="text/css" href="../css/project.css">
-<script type="text/javascript" src="../js/project.js"></script>
+<script type="text/javascript" src="js/project.js"></script>
 </head>
 <body>
 <div id="centerColumn">
 	<jsp:include page="../common/header.jsp"></jsp:include>
-		<div>
+		<div id="wrap" align="center">
 		<h1>프로젝트 상세보기</h1>
 			<table>
 				<tr>

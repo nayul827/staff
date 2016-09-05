@@ -21,6 +21,7 @@ public class NoticeDto {
 	private Timestamp writedate;
 	private int hits;
 	private String empno;
+	
 	public int getNoticenum() {
 		return noticenum;
 	}

@@ -15,29 +15,35 @@
 	<jsp:include page="../common/menu.jsp" ></jsp:include>
 	
   <!--//end #nav//-->
-  <h2>개인 프로젝트 이력 목록</h2>
-<br/>
-<table id="natable" cellspacing='0'>
-	<tr>
-		<th>순번</th>
-		<th>사원번호</th>
-		<th>프로젝트명</th>
-		<th>등록일</th>
-	</tr>
-	<c:forEach var="project" items="${projectList }">
-		<tr>
-			<td>${project.ppronum }</td>
-			<td>${project.empno }</td>
-			<td><a href="ProjectServlet?command=projectView&ppronm=${project.ppronm }">${project.ppronm }</a></td>
-			<td>${project.pregidt }</td>
-			<br/>
-			<br/>
-			<br/>
-			<td><input type="submit" value="등록" onclick="ProjectServlet?command=project_insert_form_action"></td>
-		</tr>
-	</c:forEach>    
-</table>  
-<jsp:include page="../common/footer.jsp" ></jsp:include>
+  <div id="wrap" align="center">
+  	<h1>개인 프로젝트 목록</h1>
+	<br/>
+		<table id="natable" cellspacing='0'>
+			<tr>
+				<td><a href="ProjectServlet?command=project_insert_form">프로젝트 등록</a>
+				</td>
+			</tr>
+			<tr>
+				<th>순번</th>
+				<th>사원번호</th>
+				<th>프로젝트 제목</th>
+				<th>등록일</th>
+			</tr>
+			<c:forEach var="project" items="${projectList }">
+				<tr>
+					<td>${project.ppronum }</td>
+					<td>${project.empno }</td>
+					<td><a href="ProjectServlet?command=projectView&ppronm=${project.ppronum }">${project.ppronm }</a></td>
+					<td>${project.pregidt }</td>
+					<br/>
+					<br/>
+					<br/>
+					<td><input type="submit" value="등록" onclick="ProjectServlet?command=project_insert_form_action"></td>
+				</tr>
+			</c:forEach>    
+		</table> 
+	</div> 
+	<jsp:include page="../common/footer.jsp" ></jsp:include>
   <!--//end #footer//-->
 </div>
 <!--//end #centerColumn//-->

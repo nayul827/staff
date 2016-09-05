@@ -8,12 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.project.common.Action;
-import com.project.staff.dao.staffDao;
-import com.project.staff.dto.staffDto;
 
 public class staffUpdateFormAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String url="staff/staffUpdate.jsp";
 		

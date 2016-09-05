@@ -13,7 +13,7 @@ import com.project.staff.dao.staffDao;
 
 public class licenseDeleteAction implements Action {
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		int licensenum = Integer.parseInt(request.getParameter("licensenum"));

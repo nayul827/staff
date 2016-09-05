@@ -14,7 +14,7 @@ import com.project.login.dao.LoginDao;
 
 public class ProjectInsertFormAction implements Action {
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String url = "project/projectInsert.jsp";
 		

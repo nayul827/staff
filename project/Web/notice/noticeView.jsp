@@ -7,12 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="./css/shopping.css">
+<link rel="stylesheet" type="text/css" href="./css/main.css">
 <script type="text/javascript" src="js/notice.js"></script>
 </head>
 <body>
 <div id="centerColumn">
-	<jsp:include page="/common/header.jsp" ></jsp:include>
+	<jsp:include page="../common/header.jsp" ></jsp:include>
 	<div id="wrap" align="center">
 		<h1>게시글 상세보기</h1>
 		<table>
@@ -33,10 +33,9 @@
 			</tr>
 		</table>
 		<br><br>
-		<input type="button" value="게시글 수정" onclick="open_win('NoticeServlet?command=notice_check_pass_form&noticenum=${notice.noticenum}','update')">
-		<input type="button" value="게시글 삭제" onclick="open_win('NoticeServlet?command=notice_check_pass_form&noticenum=${notice.noticenum}','delete')">
-		<input type="button" value="게시글 목록" onclick="location.href='NoticeServlet?command=notice_list'">
-		<input type="button" value="게시글 등록" onclick="location.href='NoticeServlet?command=notice_write_form'">
+		<input type="button" value="수정" onclick="open_win('NoticeServlet?command=notice_check_pass_form&noticenum=${notice.noticenum}','update')">
+		<input type="button" value="목록" onclick="location.href='NoticeServlet?command=notice_list'">
+		<input type="button" value="삭제" onclick="open_win('NoticeServlet?command=notice_check_pass_form&noticenum=${notice.noticenum}','delete')">
 	</div>
   
  <jsp:include page="/common/footer.jsp" ></jsp:include>

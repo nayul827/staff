@@ -12,7 +12,7 @@ import com.project.notice.dto.NoticeDto;
 
 public class NoticeWriteAction implements Action{
 	@Override
-	public void exectute(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		NoticeDto nDto = new NoticeDto();
 			
@@ -29,6 +29,6 @@ public class NoticeWriteAction implements Action{
 		NoticeDao nDao = NoticeDao.getInstance();
 		nDao.insertNotice(nDto);
 		
-		new NoticeListAction().exectute(request, response);
+		new NoticeListAction().execute(request, response);
 	}
 }

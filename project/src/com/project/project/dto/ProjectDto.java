@@ -1,5 +1,7 @@
 package com.project.project.dto;
 
+import java.sql.Timestamp;
+
 public class ProjectDto {
 //	CPRONUM	NUMBER(6)
 //	CREGIDT	CHAR(8)
@@ -9,7 +11,8 @@ public class ProjectDto {
 //	CCONTENT	VARCHAR2(2500)
 	
 	private int cpronum;
-	private String cregidt;
+	private String pwd;
+	private Timestamp cregidt;
 	private String cinitdt;
 	private String coutdt;
 	private String cpronm;
@@ -20,12 +23,6 @@ public class ProjectDto {
 	}
 	public void setCpronum(int cpronum) {
 		this.cpronum = cpronum;
-	}
-	public String getCregidt() {
-		return cregidt;
-	}
-	public void setCregidt(String cregidt) {
-		this.cregidt = cregidt;
 	}
 	public String getCinitdt() {
 		return cinitdt;
@@ -65,7 +62,7 @@ public class ProjectDto {
 //	CAREERNUM	NUMBER(3)
 	
 	private int ppronum;
-	private String pregidt;
+	private Timestamp pregidt;
 	private String pinitdt;
 	private String poutdt;
 	private String ppronm;
@@ -73,25 +70,12 @@ public class ProjectDto {
 	private String empno;
 	private int worknum;
 	private int careernum;
-	private String wdt;
 
-	public String getWdt() {
-		return wdt;
-	}
-	public void setWdt(String wdt) {
-		this.wdt = wdt;
-	}
 	public int getPpronum() {
 		return ppronum;
 	}
 	public void setPpronum(int ppronum) {
 		this.ppronum = ppronum;
-	}
-	public String getPregidt() {
-		return pregidt;
-	}
-	public void setPregidt(String pregidt) {
-		this.pregidt = pregidt;
 	}
 	public String getPinitdt() {
 		return pinitdt;
@@ -134,6 +118,24 @@ public class ProjectDto {
 	}
 	public void setCareernum(int careernum) {
 		this.careernum = careernum;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public Timestamp getPregidt() {
+		return pregidt;
+	}
+	public void setPregidt(Timestamp pregidt) {
+		this.pregidt = pregidt;
+	}
+	public Timestamp getCregidt() {
+		return cregidt;
+	}
+	public void setCregidt(Timestamp cregidt) {
+		this.cregidt = cregidt;
 	}
 	
 }
