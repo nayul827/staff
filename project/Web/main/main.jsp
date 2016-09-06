@@ -11,7 +11,6 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="./css/main.css" media="screen" />
 	<link rel="shortcut icon" href="/HRIS_Web/favicon.ico"/>
-	<link rel="stylesheet" href="../css/jqueryui/base/jquery.ui.all.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/home_dialog.css" />
 	<link rel="stylesheet" type="text/css" href="/Themes/Home/Summer.css" />
 
@@ -51,7 +50,7 @@
             	            <li><a href='/HRIS_Web/VPW/VPWA02C0S.aspx?pg=1&seq=476'>현대백화점 아동·유아 신진 브랜드 모집</a><span>2014.03.28</span></li>
                                                 
                     </ul>
-                    <a href="/HRIS_Web/VPW/VPWA01C0S.ASPX" class="more"><img src="../images/main/more.gif" alt="공지사항 더보기"></a>
+                   <a href="NoticeServlet?command=notice_view&noticenum=${notice.noticenum } class="more"><img src="../images/more.gif" alt="공지사항 더보기"></a>
                 </div>
 
  <jsp:include page="../common/footer.jsp" ></jsp:include>

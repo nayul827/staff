@@ -36,7 +36,7 @@ public class staffInsertAction implements Action{
 		
 		staffDao sDao = staffDao.getIntance();
 		sDao.insertStaff(sDto, sessionEmpno);
-		response.sendRedirect("StaffServlet?command=staffView");
+		response.sendRedirect("StaffServlet?command=staff_view");
 		
 	}
 }

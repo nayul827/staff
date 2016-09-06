@@ -16,6 +16,7 @@ public class addrnoDto {
 	private String dong;
 	private String ri;
 	private String bldg;
+	
 	private String bungi;
 	public int getAddrno() {
 		return addrno;
@@ -65,6 +66,10 @@ public class addrnoDto {
 	public void setBungi(String bungi) {
 		this.bungi = bungi;
 	}
-	
+	@Override
+	public String toString() {
+		return "addrnoDto [addrno=" + addrno + ", zipcode=" + zipcode + ", sido=" + sido + ", sigungu=" + sigungu
+				+ ", dong=" + dong + ", ri=" + ri + ", bldg=" + bldg + ", bungi=" + bungi + "]";
+	}
 	
 }

@@ -21,14 +21,14 @@ public class LoginDao {
 		return instance;
 	}
 	
-	public Connection getConnecttion() throws Exception{
-		Connection conn=null;
-		Context initContext= new InitialContext();
-		Context envContext=(Context) initContext.lookup("java:/comp/env");
-		DataSource ds=(DataSource) envContext.lookup("jdbc/staff");
-		conn = ds.getConnection();
-		return conn;
-	}
+//	public Connection getConnection() throws Exception{
+//		Connection conn=null;
+//		Context initContext= new InitialContext();
+//		Context envContext=(Context) initContext.lookup("java:/comp/env");
+//		DataSource ds=(DataSource) envContext.lookup("jdbc/staff");
+//		conn = ds.getConnection();
+//		return conn;
+//	}
 	
 	public int userCheck(String empno,String pwd,int manyn){
 		int result=-1;
@@ -38,7 +38,7 @@ public class LoginDao {
 		ResultSet rs=null;
 		
 		try {
-			conn= getConnecttion();
+			conn= DBManager.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, empno);
 			pstmt.setString(2, pwd);
@@ -76,7 +76,7 @@ public class LoginDao {
 		ResultSet rs =null;
 		
 		try {
-			conn=getConnecttion();
+			conn = DBManager.getConnection();
 			pstmt= conn.prepareStatement(sql);
 			pstmt.setString(1, empno);
 			rs=pstmt.executeQuery();

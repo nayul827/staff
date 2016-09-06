@@ -2,6 +2,7 @@ package com.project.staff.controller;
 
 import com.project.common.Action;
 import com.project.common.ActionUpload;
+import com.project.staff.action.addrListAction;
 import com.project.staff.action.careerDeleteAction;
 import com.project.staff.action.careerInsertAction;
 import com.project.staff.action.careerListAction;
@@ -31,59 +32,60 @@ public class ActionFactory {
 		Action action=null;
 		System.out.println("ActionFactory:"+command);
 		
-		if(command.equals("staffList")){
+		if(command.equals("staff_list")){
 			action= new staffListAction();
 		}
-		else if(command.equals("staffInsert")){
-			action = new staffInsertAction();
-		}
-		else if(command.equals("staffInsertForm")){
+		else if(command.equals("staff_insert_form")){
 			action = new staffInsertFormAction();
 		}
-		else if(command.equals("staffView")){
+		else if(command.equals("staff_view")){
 			action = new staffViewAction();
 		}
-		else if(command.equals("staffUpdateForm")){
+		else if(command.equals("staff_update_form")){
 			action = new staffUpdateFormAction();
 		}
-		else if(command.equals("staffUpdate")){
+		else if(command.equals("staff_update")){
 			action = new staffUpdateAction();
 		}
-		else if(command.equals("licenseList")){
+		else if(command.equals("license_list")){
 			action = new licenseListAction();
 		}
-		else if(command.equals("licenseInsertAction")){
+		else if(command.equals("license_insert_action")){
 			action = new licenseInsertAction();
 		}
-		else if(command.equals("licenseDeleteAction")){
+		else if(command.equals("license_delete_action")){
 			action = new licenseDeleteAction();
 		}
-		else if(command.equals("degreeList")){
+		else if(command.equals("degree_list")){
 			action = new degreeListAction();
 		}
-		else if(command.equals("degreeInsertAction")){
+		else if(command.equals("degree_insert_action")){
 			action = new degreeInsertAction();
 		}
-		else if(command.equals("degreeDeleteAction")){
+		else if(command.equals("degree_delete_action")){
 			action = new degreeDeleteAction();
 		}
-		else if(command.equals("careerList")){
+		else if(command.equals("career_list")){
 			action = new careerListAction();
 		}
-		else if(command.equals("careerInsertAction")){
+		else if(command.equals("career_insert_action")){
 			action = new careerInsertAction();
 		}
-		else if(command.equals("careerDeleteAction")){
+		else if(command.equals("career_delete_action")){
 			action = new careerDeleteAction();
+		}
+		else if (command.equals("addr_insert")){
+			action = new addrListAction();
 		}
 		return action;
 	}
 	public ActionUpload getActionUpload(String command){
 		ActionUpload actionUpload=null;
 		System.out.println("ActionFactory:"+command);
-		if(command.equals("staffInsert")){
-			actionUpload = (ActionUpload) new staffInsertAction();
-		}
+		if(command.equals("staff_insert")){
+			actionUpload = new staffInsertAction();
+		} 
+		
 		return actionUpload;
 	}
 }

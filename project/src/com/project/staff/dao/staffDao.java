@@ -1,5 +1,6 @@
 package com.project.staff.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,6 +30,35 @@ public class staffDao {
 		}
 		return instance;
 	}
+	public int getCountRow(String sh_empno,String sh_empnm,String sh_indt_st, String sh_indt_ed){
+		int x=0;
+		String sql="{call emp_count(?,?,?,?,?)}";
+		Connection conn=null;
+		CallableStatement cstmt =null;
+		ResultSet rs=null;
+		
+		try {
+			conn= DBManager.getConnection();
+			cstmt= conn.prepareCall(sql);
+			cstmt.setString(1, sh_empno);
+			cstmt.setString(2, sh_empnm);
+			cstmt.setString(3, sh_indt_st);
+			cstmt.setString(4, sh_indt_ed);
+			
+			cstmt.registerOutParameter(5,oracle.jdbc.OracleTypes.CURSOR);
+			cstmt.executeQuery();
+			rs=(ResultSet)cstmt.getObject(5);
+			
+			if(rs.next()){
+				x= rs.getInt("cnt");
+			}
+		} catch (Exception e) {
+			System.out.println("getListCount에러:"+e);
+		}finally {
+			DBManager.close(conn, cstmt, rs);
+		}
+		return x;
+	}
 	public int totalCount(){
 		int cnt=0;
 		String sql="select count(empno) cnt from emp";
@@ -51,21 +81,31 @@ public class staffDao {
 		}
 		return cnt;
 	}
-	public List<staffDto> selectAllMember(int start,int end){
-		String sql="select empno, empnm, ranknm,wdt FROM (SELECT ROWNUM r,a.* from (SELECT e.*, d.ranknm FROM EMP e JOIN rank d ON d.ranknum = e.ranknum order by e.empno DESC )a) WHERE r BETWEEN ? AND ?";
-		//String sql = "select * from EMP";
-		List<staffDto> list = new ArrayList<>();
-		Connection conn=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs =null;
-		
+	public List<staffDto> selectAllMember(int page,int perPageRow,String sh_empno, String sh_empnm, String sh_indt_st, String sh_indt_ed){
+		 String sql = "{call emp_list(?,?,?,?,?,?,?)}";
+	     List<staffDto> list = new ArrayList<staffDto>();
+	     int startrow=(page - 1) * perPageRow + 1;
+	     int endrow=startrow + perPageRow - 1;
+
+	     Connection conn = null;
+	     CallableStatement  cstmt = null;
+	     ResultSet rs = null;
+	     System.out.println("asdasd");
+		System.out.println(sh_empnm);
+	 
 		try {
-			conn=DBManager.getConnection();
-			pstmt= conn.prepareStatement(sql.toString());
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
-			rs=  pstmt.executeQuery();
-			
+			 conn = DBManager.getConnection();
+	         cstmt = conn.prepareCall(sql);
+	         cstmt.setInt(1, startrow);
+	         cstmt.setInt(2, endrow);
+	         cstmt.setString(3, sh_empno);
+	         cstmt.setString(4, sh_empnm);
+	         cstmt.setString(5, sh_indt_st);
+	         cstmt.setString(6, sh_indt_ed);         
+	         cstmt.registerOutParameter(7, oracle.jdbc.OracleTypes.CURSOR);
+	         cstmt.executeQuery();
+	         rs = (ResultSet) cstmt.getObject(7);                
+
 			while(rs.next()){
 				staffDto sDto= new staffDto();
 				
@@ -73,51 +113,16 @@ public class staffDao {
 				sDto.setEmpnm(rs.getString("empnm"));
 				sDto.setRanknm(rs.getString("ranknm"));
 				sDto.setWdt(rs.getString("wdt"));
-				
-				
 				list.add(sDto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(conn, pstmt, rs);
+			DBManager.close(conn, cstmt, rs);
 		}
 		return list;
 	}
-	public List<addrnoDto> selectAllAddrno(){
-		String sql="select * from addrno order by no desc";
-		
-		List<addrnoDto> list = new ArrayList<>();
-		Connection conn=null;
-		Statement stmt=null;
-		ResultSet rs =null;
-		
-		try {
-			conn=DBManager.getConnection();
-			stmt= conn.createStatement();
-			rs=  stmt.executeQuery(sql);
-			
-			while(rs.next()){
-				addrnoDto aDto= new addrnoDto();
-				
-				aDto.getAddrno();
-				aDto.getZipcode();
-				aDto.getSido();
-				aDto.getSigungu();
-				aDto.getDong();
-				aDto.getRi();
-				aDto.getBldg();
-				aDto.getBungi();
-				
-				list.add(aDto);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			DBManager.close(conn, stmt, rs);
-		}
-		return list;
-	}
+	
 	public int insertStaff(staffDto sDto, String empno){
 		int result = -1;
 		System.out.println(sDto.toString());
@@ -130,16 +135,21 @@ public class staffDao {
 				+"salary)"
 				+"values(?,?)";
 		
+		String sssql="insert into addr ("
+				+"addrno,zipcode,sido,sigungu,dong,ri,bldg,bungi)"
+				+"values(adrr_addrno_seq.nextval,?,?,?,?,?,?,?)";
+		
+		
 		Connection conn= null;
 		PreparedStatement pstmt=null;
 		PreparedStatement pstmts=null;
-		
+		PreparedStatement pstmtss=null;
 		try {
 			conn= DBManager.getConnection();
 			pstmt= conn.prepareStatement(sql);
 			pstmts= conn.prepareStatement(ssql);
-			
-		
+			pstmtss= conn.prepareStatement(sssql);
+	
 			pstmt.setString(1, sDto.getEmpnm());
 			pstmt.setString(2, sDto.getJuminno());
 			pstmt.setString(3, sDto.getEmail());
@@ -156,6 +166,10 @@ public class staffDao {
 			pstmts.setString(1, empno);
 			pstmts.setInt(2, sDto.getSalary());
 			pstmts.executeUpdate();
+			
+			pstmtss.setString(1, sDto.getAddrno());
+			pstmtss.executeUpdate();
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -192,6 +206,7 @@ public class staffDao {
 				sDto.setOutdt(rs.getString("outdt"));
 				sDto.setWdt(rs.getString("wdt"));
 				sDto.setAddrno(rs.getString("addrno"));
+				sDto.setSalary(Integer.parseInt(rs.getString("salary")));
 				sDto.setDeptno(rs.getInt("deptno"));
 				sDto.setRanknum(rs.getInt("ranknum"));
 				

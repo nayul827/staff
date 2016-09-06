@@ -4,15 +4,13 @@
 <c:if test="${empty loginUser }">
 	<jsp:forward page="login.do" ></jsp:forward>
 </c:if> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>Fluid box layout</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="./css/main.css" media="screen" />
 	<link rel="shortcut icon" href="/HRIS_Web/favicon.ico"/>
-	<link rel="stylesheet" href="../css/jqueryui/base/jquery.ui.all.css"/>
-	<link rel="stylesheet" type="text/css" href="../css/styles.css" />
 </head>
 <body>
 <div id="centerColumn">
@@ -28,7 +26,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" value="로그아웃"/>&nbsp;
-					<a href="StaffServlet?command=staffInsertForm"><input type="button" value="사원 생성"/></a>
+					<a href="StaffServlet?command=staffInsertForm"><input type="button" value="사원 등록"/></a>
 				</td>
 			</tr>
 		</table>
@@ -50,7 +48,7 @@
             	            <li><a href='/HRIS_Web/VPW/VPWA02C0S.aspx?pg=1&seq=476'>현대백화점 아동·유아 신진 브랜드 모집</a><span>2014.03.28</span></li>
                                                 
                     </ul>
-                    <a href="/HRIS_Web/VPW/VPWA01C0S.ASPX" class="more"><img src="../images/main/more.gif" alt="공지사항 더보기"></a>
+                    <a href="NoticeServlet?command=notice_view&noticenum=${notice.noticenum } class="more"><img src="../images/more.gif" alt="공지사항 더보기"></a>
                 </div>
 
  <jsp:include page="../common/footer.jsp" ></jsp:include>

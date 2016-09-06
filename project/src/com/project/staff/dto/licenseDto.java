@@ -42,6 +42,11 @@ public class licenseDto {
 	public void setEmpno(String empno) {
 		this.empno = empno;
 	}
+	@Override
+	public String toString() {
+		return "licenseDto [licensenum=" + licensenum + ", licensenm=" + licensenm + ", getdt=" + getdt
+				+ ", licenseoffice=" + licenseoffice + ", empno=" + empno + "]";
+	}
 	
 	
 }
