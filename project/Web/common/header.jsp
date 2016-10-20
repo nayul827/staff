@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="header">
-    <h1><a href="login.do">사원 관리 프로그램</a></h1>
+    <h1><a href="../main/main.jsp">사원 관리 프로그램</a></h1>
 <div class="menu">
 			<ul>
 				<li><a class="center_hassub" >개인 프로젝트 이력관리</a>
